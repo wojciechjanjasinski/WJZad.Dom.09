@@ -1,37 +1,14 @@
 package AirConditioning;
 
-import static AirConditioning.TestRoomConditions.*;
-
 public class TestRoom {
     public static void main(String[] args) {
-        BasicAirCondition basicAirCondition = new BasicAirCondition();
-        getTestRoomNumber();
-        getRoomOneMetricLength();
-        getTemperatureOne();
-        getDesiredTemperatureOne();
+        double desiredTemperatureOne = 25;
+        double temperatureOne = 32; // 32° stopni celsiusza
+        double roomOneMetricLength = 12;
 
-        while (getTemperatureOne()!= getDesiredTemperatureOne()){
-            basicAirCondition.AirConditioner();
-            System.out.println(basicAirCondition.getTemperatureFour());
-        }
-        System.out.println("komunikat");
-
-//        System.out.println(getTemperatureFour());
-//        basicAirCondition.AirConditioner(getTemperatureFour());
-
-
-
-//        System.out.println(getTemperatureOne());
-//        basicAirCondition.AirConditioner(getTemperatureOne());
-//        System.out.println(basicAirCondition.AirConditioner(getTemperatureOne()));
-
-//        if (getTemperatureFour() != getDesiredTemperatureOne()){
-//            basicAirCondition.AirConditioner(getTemperatureFour());
-//            System.out.println("ups");
-//        } else
-//            System.out.println("osiągnięto pożądaną temperaturę" + getDesiredTemperatureOne());
-//    }
-
-
+        System.out.println(temperatureOne);
+        for (double i = temperatureOne; i>=desiredTemperatureOne ; i-= 1/roomOneMetricLength) {
+            System.out.println(i);
+        } // basicAirConditioner
     }
 }
