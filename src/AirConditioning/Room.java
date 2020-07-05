@@ -4,11 +4,13 @@ public class Room {
     private int roomNumber;
     private double temperatureOfRoom;
     private double roomMetricLength;
+    AirConditioner airConditioner;
 
     public Room(int roomNumber, double temperatureOfRoom, double roomMetricLength) {
         this.roomNumber = roomNumber;
         this.temperatureOfRoom = temperatureOfRoom;
         this.roomMetricLength = roomMetricLength;
+
     }
 
     public int getRoomNumber() {
@@ -35,12 +37,23 @@ public class Room {
         this.roomMetricLength = roomMetricLength;
     }
 
+    public AirConditioner getAirConditioner() {
+        return airConditioner;
+    }
+
+    public void setAirConditioner(AirConditioner airConditioner) {
+        this.airConditioner = airConditioner;
+    }
+
+
+
     @Override
     public String toString() {
         return "Room{" +
                 "roomNumber=" + roomNumber +
                 ", temperatureOfRoom=" + temperatureOfRoom +
                 ", roomMetricLength=" + roomMetricLength +
+                ", airConditioner=" + airConditioner +
                 '}';
     }
 }

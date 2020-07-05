@@ -1,15 +1,9 @@
 package AirConditioning;
 
-public class AirConditioner extends Room {
+public class AirConditioner {
     private double desiredTemperature;
 
-    public void startAirConditioner(Room room, double desiredTemperature){
-        for (double i = getTemperatureOfRoom(); i < getDesiredTemperature(); i -= 1/ getRoomMetricLength()) {
-            System.out.println(i);
-        }
-    }
-    public AirConditioner(int roomNumber, double temperatureOfRoom, double roomMetricLength, double desiredTemperature) {
-        super(roomNumber, temperatureOfRoom, roomMetricLength);
+    public AirConditioner(double desiredTemperature) {
         this.desiredTemperature = desiredTemperature;
     }
 
@@ -21,13 +15,24 @@ public class AirConditioner extends Room {
         this.desiredTemperature = desiredTemperature;
     }
 
+    public  void startAirConditioner(Room room){
+        for (double i = room.getTemperatureOfRoom(); i >= getDesiredTemperature(); i -= 1 / room.getRoomMetricLength()) {
 
+            System.out.println(i);
+        }
+    }
+
+    public void startAirConditionerOnce (Room room){
+        double newTemp = room.getTemperatureOfRoom() - 1/ room.getRoomMetricLength();
+        room.setRoomMetricLength(newTemp);
+        System.out.println(newTemp);
+    }
 
     @Override
     public String toString() {
-        return " Room " + super.toString() + "AirConditioner{" +
+        return "AirConditioner{" +
                 "desiredTemperature=" + desiredTemperature +
-                "} ";
+                '}';
     }
 
     //    public void startAirConditioner(int room) {
