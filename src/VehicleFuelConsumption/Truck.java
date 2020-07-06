@@ -42,18 +42,6 @@ public class Truck extends Car {
         System.out.println(truckAirConditionOn);
     }
 
-    public void cargoFuelAdditionalStandardUsage (){
-        double additionalFuelUsage = (getCargoFuelUsage() / getCargoDistanceConditionUsage() * getConvertValue()) * getCargoStandardCalculateValue();
-        System.out.println(additionalFuelUsage);
-    }
-
-
-    public void cargoFuelPreciseConsumption (double fuel, double distanceInKilometre, double cargo){
-        double resultOfAverageFuelConsumption = fuel / distanceInKilometre * getConvertValue();
-        double additionalFuelUsage = (getCargoFuelUsage() / getCargoDistanceConditionUsage() * getConvertValue()) * getCargoStandardCalculateValue();
-        double cargoPreciseConsumption = resultOfAverageFuelConsumption + additionalFuelUsage * (cargo/getConvertValue());
-        System.out.println(cargoPreciseConsumption);
-    }
     @Override
     public void basicVehicleRange() {
         double airConditionWork = getFuelAirConditionUsage() / getDistanceConditionUsage() * getConvertValue();
