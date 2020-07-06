@@ -9,8 +9,8 @@ public class BasicAirConditioner extends AirConditioner {
     @Override
     public  void startAirConditioner(Room room){
         for (double i = room.getTemperatureOfRoom(); i >= getDesiredTemperature(); i -= 1 / room.getRoomMetricLength()) {
-
             System.out.println(i);
+            room.setTemperatureOfRoom(i);
         }
     }
 }

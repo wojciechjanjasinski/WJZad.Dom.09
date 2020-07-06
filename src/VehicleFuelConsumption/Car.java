@@ -14,9 +14,8 @@ public class Car extends Vehicle {
     }
     @Override
     public void basicVehicleRange() {
-        double resultOfAverageFuelConsumption = getFuel() / getDistanceInKilometre() * getConvertValue();
         double airConditionWork = getFuelAirConditionUsage() / getDistanceConditionUsage() * getConvertValue();
-        double resultOfVehicleRange = (getPetrolTank() / (resultOfAverageFuelConsumption + airConditionWork) * getConvertValue()) * getConvertValue();
+        double resultOfVehicleRange = (getPetrolTank() / (getAverageFuelConsumption() + airConditionWork) * getConvertValue()) * getConvertValue();
         System.out.println(resultOfVehicleRange);
 
     }

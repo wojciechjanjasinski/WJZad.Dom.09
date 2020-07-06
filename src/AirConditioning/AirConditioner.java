@@ -17,14 +17,14 @@ public class AirConditioner {
 
     public  void startAirConditioner(Room room){
         for (double i = room.getTemperatureOfRoom(); i >= getDesiredTemperature(); i -= 1 / room.getRoomMetricLength()) {
-
             System.out.println(i);
+            room.setTemperatureOfRoom(i);
         }
     }
 
     public void startAirConditionerOnce (Room room){
         double newTemp = room.getTemperatureOfRoom() - 1/ room.getRoomMetricLength();
-        room.setRoomMetricLength(newTemp);
+        room.setTemperatureOfRoom(newTemp);
         System.out.println(newTemp);
     }
 
