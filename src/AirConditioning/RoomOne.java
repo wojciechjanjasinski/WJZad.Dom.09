@@ -2,7 +2,7 @@ package AirConditioning;
 
 public class RoomOne {
     public static void main(String[] args) {
-        AirConditioner airConditioner = new AirConditioner(25);
+        AirConditioner airConditioner = new BasicAirConditioner(25);
         Room room = new Room(1, 32, 12);
         System.out.println(room + " " + airConditioner);
         airConditioner.startAirConditioner(room);

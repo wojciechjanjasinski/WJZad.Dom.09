@@ -1,17 +1,23 @@
 package VehicleFuelConsumption;
 
 public class Truck extends Car {
+    private double cargo;
     private final static double TRUCK_DISTANCE_CONDITION_USAGE = 600;
     private final static double CARGO_DISTANCE_CONDITION_USAGE = 1700;
     private final static double CARGO_FUEL_USAGE = 8.5;
     private final static double CARGO_STANDARD_CALCULATE_VALUE = 100;
 
-
-    public Truck(String name, String producerName, double petrolTank) {
-        super(name, producerName, petrolTank);
+    public Truck(String name, String producerName, double petrolTank, double fuel, double distanceInKilometre, double cargo) {
+        super(name, producerName, petrolTank, fuel, distanceInKilometre);
+        this.cargo = cargo;
     }
 
-    public Truck() {
+    public double getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(double cargo) {
+        this.cargo = cargo;
     }
 
     public static double getTruckDistanceConditionUsage() {
@@ -40,28 +46,29 @@ public class Truck extends Car {
         double additionalFuelUsage = (getCargoFuelUsage() / getCargoDistanceConditionUsage() * getConvertValue()) * getCargoStandardCalculateValue();
         System.out.println(additionalFuelUsage);
     }
+
+
     public void cargoFuelPreciseConsumption (double fuel, double distanceInKilometre, double cargo){
         double resultOfAverageFuelConsumption = fuel / distanceInKilometre * getConvertValue();
         double additionalFuelUsage = (getCargoFuelUsage() / getCargoDistanceConditionUsage() * getConvertValue()) * getCargoStandardCalculateValue();
         double cargoPreciseConsumption = resultOfAverageFuelConsumption + additionalFuelUsage * (cargo/getConvertValue());
         System.out.println(cargoPreciseConsumption);
     }
-
-    public void truckVehicleRange (double petrolTank, double fuel, double distanceInKilometre, double cargo){
-        double resultOfAverageFuelConsumption = fuel / distanceInKilometre * getConvertValue();
+    @Override
+    public void basicVehicleRange() {
+        double resultOfAverageFuelConsumption = getFuel() / getDistanceInKilometre() * getConvertValue();
         double airConditionWork = getFuelAirConditionUsage() / getDistanceConditionUsage() * getConvertValue();
         double additionalFuelUsage = (getCargoFuelUsage() / getCargoDistanceConditionUsage() * getConvertValue()) * getCargoStandardCalculateValue();
-        double cargoPreciseConsumption = resultOfAverageFuelConsumption + additionalFuelUsage * (cargo/getConvertValue());
-        double resultOfVehicleRange = (petrolTank / (resultOfAverageFuelConsumption + airConditionWork + cargoPreciseConsumption) * getConvertValue()) * getConvertValue();
+        double cargoPreciseConsumption = resultOfAverageFuelConsumption + additionalFuelUsage * (getCargo()/getConvertValue());
+        double resultOfVehicleRange = (getPetrolTank() / (resultOfAverageFuelConsumption + airConditionWork + cargoPreciseConsumption) * getConvertValue()) * getConvertValue();
         System.out.println(resultOfVehicleRange);
 
     }
 
-
-    //public void carAirConditionWork (){
-    //    double airConditionWork = FUEL_AIR_CONDITION_USAGE / DISTANCE_CONDITION_USAGE * AIR_CONDITION_WORKING;
-    //    System.out.println(airConditionWork);
-
-    // 8,5 1700 100
-    // }
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "cargo=" + cargo +
+                "} " + super.toString();
+    }
 }
