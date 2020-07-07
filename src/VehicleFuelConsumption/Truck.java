@@ -46,8 +46,8 @@ public class Truck extends Car {
     public void basicVehicleRange() {
         double airConditionWork = getFuelAirConditionUsage() / getDistanceConditionUsage() * getConvertValue();
         double additionalFuelUsage = (getCargoFuelUsage() / getCargoDistanceConditionUsage() * getConvertValue()) * getCargoStandardCalculateValue();
-        double cargoPreciseConsumption = getAverageFuelConsumption() + additionalFuelUsage * (getCargo()/getConvertValue());
-        double resultOfVehicleRange = (getPetrolTank() / (getAverageFuelConsumption() + airConditionWork + cargoPreciseConsumption) * getConvertValue()) * getConvertValue();
+        double cargoPreciseConsumption = averageFuelConsumption() + additionalFuelUsage * (getCargo()/getConvertValue());
+        double resultOfVehicleRange = (getPetrolTank() / (averageFuelConsumption() + airConditionWork + cargoPreciseConsumption) * getConvertValue()) * getConvertValue();
         System.out.println(resultOfVehicleRange);
 
     }

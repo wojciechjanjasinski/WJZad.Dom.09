@@ -9,7 +9,6 @@ public class Vehicle {
     private final static double CONVERT_VALUE = 100;
     private final static double FUEL_AIR_CONDITION_USAGE = 9.6;
     private final static double DISTANCE_CONDITION_USAGE = 1200;
-    private double averageFuelConsumption;
 
 
     public Vehicle(String name, String producerName, double petrolTank, double fuel, double distanceInKilometre) {
@@ -73,30 +72,22 @@ public class Vehicle {
         this.distanceInKilometre = distanceInKilometre;
     }
 
-    public double getAverageFuelConsumption() {
-        return averageFuelConsumption;
-    }
-
-    public void setAverageFuelConsumption(double averageFuelConsumption) {
-        this.averageFuelConsumption = averageFuelConsumption;
-    }
-
     public void airConditionWork() {
         double airConditionWork = FUEL_AIR_CONDITION_USAGE / DISTANCE_CONDITION_USAGE * getConvertValue();
         System.out.println(airConditionWork);
     }
 
-    public void averageFuelConsumption() {
+    public double averageFuelConsumption() {
         double resultOfAverageFuelConsumption = getFuel() / getDistanceInKilometre() * getConvertValue();
         System.out.println(resultOfAverageFuelConsumption);
-        setAverageFuelConsumption(resultOfAverageFuelConsumption);
+        return resultOfAverageFuelConsumption;
     }
 
 
     // 0.8 l na 100 km = fuelAirConditionUsage(9.6) / 1200 * 100
 
     public void basicVehicleRange() {
-        double resultOfVehicleRange = (getPetrolTank() / getAverageFuelConsumption() * getConvertValue()) * getConvertValue();
+        double resultOfVehicleRange = (getPetrolTank() / averageFuelConsumption() * getConvertValue()) * getConvertValue();
         System.out.println(resultOfVehicleRange);
 
     }
