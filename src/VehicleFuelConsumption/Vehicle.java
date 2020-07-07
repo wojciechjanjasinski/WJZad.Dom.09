@@ -72,9 +72,10 @@ public class Vehicle {
         this.distanceInKilometre = distanceInKilometre;
     }
 
-    public void airConditionWork() {
+    public double airConditionWork() {
         double airConditionWork = FUEL_AIR_CONDITION_USAGE / DISTANCE_CONDITION_USAGE * getConvertValue();
         System.out.println(airConditionWork);
+        return airConditionWork;
     }
 
     public double averageFuelConsumption() {
